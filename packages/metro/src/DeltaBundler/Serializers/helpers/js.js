@@ -40,7 +40,7 @@ function wrapModule(module: Module<>, options: Options) {
 
   // Add the module relative path as the last parameter (to make it easier to do
   // requires by name when debugging).
-  if (options.dev) {
+  if (options.dev || process.env.FORCE_SYSTRACE) {
     params.push(path.relative(options.projectRoot, module.path));
   }
 

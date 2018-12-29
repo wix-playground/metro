@@ -13,8 +13,6 @@
 
 /* eslint-disable no-bitwise */
 
-declare var __DEV__: boolean;
-
 type DependencyMap = Array<ModuleID>;
 type Exports = any;
 type FactoryFn = (
@@ -79,6 +77,8 @@ function clear() {
   // which will force us to add "nullthrows" everywhere.
   return modules;
 }
+
+const __DEV__ = global.__DEV__ || global.__FORCE_SYSTRACE__;
 
 if (__DEV__) {
   var verboseNamesToModuleIds: {

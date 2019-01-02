@@ -63,7 +63,10 @@ async function getPrependedScripts(
 }
 
 function _getPrelude({dev}: {dev: boolean}): Module<> {
-  const code = getPreludeCode({isDev: dev, extraVars: { __FORCE_SYSTRACE__: !!process.env.FORCE_SYSTRACE }});
+  const code = getPreludeCode({
+    isDev: dev,
+    extraVars: {__FORCE_SYSTRACE__: !!process.env.FORCE_SYSTRACE},
+  });
   const name = '__prelude__';
 
   return {
